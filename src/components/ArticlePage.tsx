@@ -1,12 +1,13 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import articles from './article-content';
+import NotFoundPage from './NotFoundPage';
 
 const ArticlePage = ({ match }: RouteComponentProps<{ name: string }>) => {
     const name = match.params.name;
     const article = articles.find((article) => article.name === name);
 
-    if (!article) return <h1>Not found</h1>;
+    if (!article) return <NotFoundPage />;
 
     return (
         <>
