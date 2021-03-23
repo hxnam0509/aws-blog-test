@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import ArticlesList from '../components/ArticlesList';
+import CommentList from '../components/CommentList';
 import articleContent from './article-content';
 import NotFoundPage from './NotFoundPage';
 
@@ -15,11 +16,11 @@ const ArticlePage = ({ match }: RouteComponentProps<{ name: string }>) => {
             const result = await fetch(`/api/articles/${name}`);
             const json = await result.json();
             setArticleInfo(json);
-        }
+        };
         fetchData();
     }, [name]);
 
-    if (!article) return <NotFoundPage />
+    if (!article) return <NotFoundPage />;
 
     const otherArticles = articleContent.filter(article => article.name !== name);
 
@@ -30,6 +31,7 @@ const ArticlePage = ({ match }: RouteComponentProps<{ name: string }>) => {
             {article.content.map((paragraph, key) => (
                 <p key={key}>{paragraph}</p>
             ))}
+            <CommentList comments={articleInfo.comments} />
             <h3>Other Articles:</h3>
             <ArticlesList articles={otherArticles} />
         </>
