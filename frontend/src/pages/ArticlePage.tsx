@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import AddCommentForm from '../components/AddCommentForm';
 import ArticlesList from '../components/ArticlesList';
 import CommentList from '../components/CommentList';
 import UpvoteSection from '../components/UpvoteSection';
@@ -33,6 +34,7 @@ const ArticlePage = ({ match }: RouteComponentProps<{ name: string }>) => {
                 <p key={key}>{paragraph}</p>
             ))}
             <CommentList comments={articleInfo.comments} />
+            <AddCommentForm articleName={name} setArticleInfo={setArticleInfo}/>
             <h3>Other Articles:</h3>
             <ArticlesList articles={otherArticles} />
         </>
