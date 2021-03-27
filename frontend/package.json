@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8000",
-  "homepage": "https://www.linkedin.com/learning/react-creating-and-hosting-a-full-stack-site/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
